@@ -6,7 +6,8 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
   protected int myColor;   
   protected double myCenterX, myCenterY; //holds center coordinates   
   protected double myDirectionX, myDirectionY; //holds x and y coordinates of the vector for direction of travel   
-  protected double myPointDirection; //holds current direction the ship is pointing in degrees    
+  protected double myPointDirection; //holds current direction the ship is pointing in degrees  
+  protected double rotSpeed;
 
   //Accelerates the floater in the direction it is pointing (myPointDirection)   
   public void accelerate (double dAmount)   
@@ -17,7 +18,7 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     myDirectionX += ((dAmount) * Math.cos(dRadians));    
     myDirectionY += ((dAmount) * Math.sin(dRadians));       
   }   
-  public void turn (int nDegreesOfRotation)   
+  public void turn (float nDegreesOfRotation)   
   {     
     //rotates the floater by a given number of degrees    
     myPointDirection+=nDegreesOfRotation;   

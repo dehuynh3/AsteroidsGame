@@ -1,6 +1,7 @@
-class Asteroid extends Floater 
+class Bullet extends Floater 
 {
-  public Asteroid(){
+  public Bullet(){
+   
     corners =6;
     xCorners =new int[corners];
     yCorners =new int[corners];
@@ -16,15 +17,16 @@ class Asteroid extends Floater
     yCorners[4]=(int)(Math.random()*8+3);
      xCorners[5]= -(int)(Math.random()*5+3);
     yCorners[5]=0;
-    rotSpeed=(Math.random()*5);
-    
-    myColor = color(100,100,100);
-    myCenterX =(Math.random()*1000);
-     myCenterY = (Math.random()*1000);
-    myDirectionX = 1;
-    myDirectionY = 1;
-  
+        myColor = color(100,100,100);
+
+   
+myCenterX=ship.getX();
+myCenterY = ship.getY();
+myDirectionX=ship.getDirectionX();
+myDirectionY=ship.getDirectionY();
+myPointDirection= ship.getPointDirection();
   }
+  
   public void setX(int x) {myCenterX = x;}  
       public int getX() {return (int)myCenterX;}   
       public void setY(int y) {myCenterY = y;}   
@@ -36,10 +38,13 @@ class Asteroid extends Floater
        public void setPointDirection(int degrees) {myPointDirection = degrees;}   
        public double getPointDirection() {return myPointDirection;} 
        public double getrotSpeed() {return rotSpeed;} 
-       
-  void move(){
 
-    turn(rotSpeed);
-    super.move();
+  
+  
+  public void move ()   //move the floater in the current direction of travel
+  {      
+    //change the x and y coordinates by myDirectionX and myDirectionY       
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;     
   }
 }
